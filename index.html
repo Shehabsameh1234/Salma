@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>كل سنة وإنتي معايا ❤️</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary:#b60e3d;
+      --primary-container:#da3054;
+      --primary-soft:#ffdadb;
+      --secondary:#7b41b4;
+      --secondary-soft:#f0dbff;
+      --gold:#caa83d;
+      --gold-soft:#ffe089;
+      --surface:#fbf9f9;
+      --surface-low:#f5f3f3;
+      --surface-high:#e9e8e8;
+      --text:#1b1c1c;
+      --muted:#5a4042;
+      --white:#fff;
+    }
+
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      background:var(--surface);
+      color:var(--text);
+      font-family:"Plus Jakarta Sans",sans-serif;
+      overflow-x:hidden;
+    }
+
+    h1,h2,h3,.serif { font-family:"Noto Serif",serif; }
+    .script { font-family:"Noto Serif",serif; font-style:italic; }
+
+    .page-bg {
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      background:linear-gradient(180deg,rgba(255,218,219,.35),var(--surface) 45%,rgba(240,219,255,.35));
+    }
+
+    .floating-layer {
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none;
+      overflow:hidden;
+    }
+
+    @keyframes gentle-float {
+      0%,100% { transform:translateY(0) rotate(0); opacity:.45; }
+      50% { transform:translateY(-14px) rotate(4deg); opacity:.8; }
+    }
+    @keyframes pulse-subtle {
+      0%,100% { transform:scale(1); }
+      50% { transform:scale(1.05); }
+    }
+
+    .floating-heart,.floating-star { animation:gentle-float 7s ease-in-out infinite; }
+    .floating-star { animation-duration:9s; animation-delay:1.5s; }
+    .music-pulse { animation:pulse-subtle 3s ease-in-out infinite; }
+
+    .site-header {
+      position:fixed;
+      top:0;
+      width:100%;
+      z-index:1030;
+      background:rgba(251,249,249,.78);
+      backdrop-filter:blur(12px);
+      box-shadow:0 1px 8px rgba(255,117,143,.06);
+    }
+
+    .nav-pill {
+      background:rgba(255,255,255,.8);
+      border-radius:50rem;
+      box-shadow:0 4px 16px rgba(255,117,143,.08);
+      padding:.3rem;
+    }
+    .nav-pill .nav-link {
+      color:var(--muted);
+      border-radius:50rem;
+      font-weight:600;
+      padding:.45rem 1rem;
+    }
+    .nav-pill .nav-link.active {
+      background:var(--primary-container);
+      color:#fff;
+    }
+
+    .btn-love {
+      background:linear-gradient(90deg,var(--primary-container),var(--primary),var(--primary-container));
+      border:0;
+      color:#fff;
+      font-weight:700;
+      box-shadow:0 6px 18px rgba(182,14,61,.18);
+    }
+    .btn-love:hover { color:#fff; transform:translateY(-2px); box-shadow:0 10px 24px rgba(182,14,61,.25); }
+
+    .btn-music {
+      background:rgba(240,219,255,.75);
+      color:#62259b;
+      border:0;
+      font-weight:600;
+    }
+
+    .music-player {
+      background:rgba(255,255,255,.9);
+      backdrop-filter:blur(12px);
+      border-radius:50rem;
+      box-shadow:0 8px 24px rgba(0,0,0,.08);
+    }
+
+    .music-play {
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      border:0;
+      background:linear-gradient(45deg,var(--primary),var(--primary-container));
+      color:#fff;
+    }
+
+    .hero-card,.letter-card,.final-card {
+      background:rgba(255,255,255,.88);
+      backdrop-filter:blur(12px);
+      border-radius:2rem;
+      box-shadow:0 14px 40px rgba(70,25,35,.09);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-icon {
+      width:64px;
+      height:64px;
+      background:var(--primary-soft);
+      color:var(--primary);
+    }
+
+    .name-badge {
+      position:relative;
+      display:inline-block;
+    }
+    .name-badge::before {
+      content:"";
+      position:absolute;
+      inset:-8px;
+      border-radius:50rem;
+      background:linear-gradient(90deg,var(--gold-soft),var(--primary-soft),var(--secondary-soft));
+      filter:blur(10px);
+      opacity:.7;
+      z-index:0;
+    }
+    .name-badge span {
+      position:relative;
+      display:block;
+      background:#fff;
+      border-radius:50rem;
+      padding:.65rem 2.5rem;
+      color:var(--primary);
+      box-shadow:0 8px 24px rgba(0,0,0,.1);
+      z-index:1;
+    }
+
+    .letter-card::before {
+      content:"";
+      position:absolute;
+      top:0;
+      right:0;
+      left:0;
+      height:8px;
+      background:linear-gradient(90deg,var(--secondary),var(--primary),var(--gold));
+    }
+
+    .letter-box {
+      background:rgba(245,243,243,.65);
+      border-radius:1rem;
+    }
+
+    .memory-card {
+      background:#fff;
+      padding:14px 14px 24px;
+      border-radius:1rem;
+      box-shadow:0 10px 25px rgba(0,0,0,.1);
+      transition:.3s;
+      position:relative;
+    }
+    .memory-card:hover {
+      transform:translateY(-5px) rotate(0deg)!important;
+      box-shadow:0 18px 35px rgba(0,0,0,.16);
+    }
+    .memory-card img {
+      width:100%;
+      aspect-ratio:1/1;
+      object-fit:cover;
+      border-radius:.8rem;
+      transition:.5s;
+    }
+    .memory-card:hover img { transform:scale(1.04); }
+    .tape {
+      width:64px;
+      height:20px;
+      position:absolute;
+      top:-8px;
+      left:50%;
+      transform:translateX(-50%) rotate(2deg);
+      border-radius:3px;
+      background:rgba(240,219,255,.85);
+      z-index:2;
+    }
+    .memory-label {
+      position:absolute;
+      bottom:8px;
+      right:8px;
+      background:rgba(255,255,255,.88);
+      border-radius:50rem;
+      padding:.3rem .65rem;
+      font-size:.75rem;
+    }
+
+    .video-frame {
+      min-height:360px;
+      border-radius:2rem;
+      background-size:cover;
+      background-position:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .video-overlay {
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,.2),rgba(0,0,0,.3));
+    }
+    .video-play {
+      width:80px;
+      height:80px;
+      border-radius:50%;
+      background:rgba(255,255,255,.92);
+      color:var(--primary);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:.3s;
+    }
+    .video-frame:hover .video-play { transform:scale(1.1); }
+
+    .final-card {
+      background:linear-gradient(135deg,#fff,rgba(255,218,219,.25),rgba(240,219,255,.25));
+    }
+
+    .final-photo {
+      max-width:520px;
+      aspect-ratio:4/3;
+      object-fit:cover;
+      border-radius:1rem;
+    }
+
+    .heart { color:var(--primary); }
+    .gold { color:var(--gold); }
+
+    .footer {
+      background:rgba(245,243,243,.6);
+      backdrop-filter:blur(8px);
+    }
+
+    .material-symbols-outlined {
+      vertical-align:middle;
+      font-variation-settings:'FILL' 0,'wght' 500,'GRAD' 0,'opsz' 24;
+    }
+
+    @media (max-width:575.98px) {
+      .site-header .container { padding-left:12px; padding-right:12px; }
+      .video-frame { min-height:260px; }
+      .hero-card,.letter-card,.final-card { border-radius:1.4rem; }
+      .name-badge span { padding:.55rem 1.6rem; }
+    }
+
+    .final-photo1 {
+    width: 100%;
+    max-width: 520px;
+    height: 550px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 1rem;
+}
+  </style>
+</head>
+
+<body>
+  <div class="page-bg"></div>
+  <div class="floating-layer">
+    <div class="floating-heart position-absolute top-0 start-0 m-5 text-danger opacity-25">
+      <span class="material-symbols-outlined fs-2">favorite</span>
+    </div>
+    <div class="floating-star position-absolute top-25 end-0 me-5 text-warning opacity-50">
+      <span class="material-symbols-outlined fs-4">auto_awesome</span>
+    </div>
+    <div class="floating-heart position-absolute bottom-0 end-0 m-5 text-purple opacity-25">
+      <span class="material-symbols-outlined fs-1">favorite</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container py-2">
+      <div class="d-flex align-items-center justify-content-between">
+        <button class="btn btn-music music-pulse rounded-pill px-3 py-2" type="button">
+         
+         
+        </button>
+
+        <nav class="nav nav-pill d-none d-sm-flex">
+          <a class="nav-link active" href="#birthday-hero">الرسالة</a>
+          <a class="nav-link" href="#memories">ذكرياتنا</a>
+          <a class="nav-link" href="#wishes">أمنياتي لك</a>
+        </nav>
+
+        <div class="rounded-circle d-flex align-items-center justify-content-center"
+             style="width:34px;height:34px;background:var(--primary);color:#fff;">
+          <span class="material-symbols-outlined fs-6">person</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-5">
+    <div class="container py-4">
+
+      <!-- Music -->
+      <div class="sticky-top d-flex justify-content-center py-3" style="top:70px;z-index:1020;">
+        <div class="music-player d-flex align-items-center gap-3 px-3 py-2">
+          <button id="musicToggleBtn" class="music-play d-flex align-items-center justify-content-center" type="button">
+            <span id="musicPlayIcon" class="material-symbols-outlined">play_arrow</span>
+          </button>
+          <div class="text-end">
+            <div class="small fw-bold" style="color:var(--primary)">الأغنية اللي اخترتها مخصوص ليكي 🎵</div>
+<div class="small text-secondary">اسمعيها كده وسيبيها تكمل اللحظة ❤️</div>
+
+          </div>
+          <span class="gold material-symbols-outlined">favorite</span>
+        </div>
+      </div>
+
+      <audio id="backgroundMusic" loop>
+    <source src="imgs/videoplayback.m4a" type="audio/mpeg">
+</audio>
+
+      <!-- Opening -->
+      <section class="py-5 d-flex justify-content-center">
+        <div class="hero-card text-center p-4 p-md-5 col-12 col-md-8 col-lg-6">
+          <div class="hero-icon rounded-circle d-flex align-items-center justify-content-center mx-auto mb-4">
+            <span class="material-symbols-outlined fs-1">favorite</span>
+          </div>
+          <h2 class="serif fw-bold mb-3" style="color:var(--primary)">جاهزة؟ ❤️</h2>
+          <p class="lead text-secondary mb-4">
+            المفاجأة دي اتعملت بكل حب، مخصوص عشانك وعشان ابتسامتك اللي بتنور دنيتي...
+          </p>
+          <a href="#birthday-hero" class="btn btn-love rounded-pill px-4 py-3">
+            ابدئي المفاجأة
+            <span class="material-symbols-outlined ms-1">celebration</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Birthday Hero -->
+      <section id="birthday-hero" class="text-center py-5">
+        <div class="d-inline-flex align-items-center gap-2 rounded-pill px-4 py-2 mb-4"
+             style="background:rgba(240,219,255,.6);color:#62259b;">
+          <span class="material-symbols-outlined gold">cake</span>
+          <span class="fw-semibold">يوم مميز لسمسمة العسل</span>
+        </div>
+
+        <h1 class="serif display-4 fw-bold mb-4">كل سنة وإنتي معايا ❤️</h1>
+
+        <div class="name-badge my-3">
+          <span class="serif fs-2 fw-bold">سلمي</span>
+        </div>
+
+        <p class="script fs-5 text-secondary mx-auto mt-4" style="max-width:760px;">
+          "النهارده مش يوم عادي... النهارده اليوم اللي اتولدت فيه واحدة بقت أهم وأغلى شخص في حياتي كلها."
+        </p>
+
+        <div class="d-flex justify-content-center align-items-center gap-3 gold mt-4">
+          <span class="material-symbols-outlined">auto_awesome</span>
+          <span class="material-symbols-outlined fs-2">star</span>
+          <span class="material-symbols-outlined">auto_awesome</span>
+        </div>
+      </section>
+
+      <!-- Love Letter -->
+      <section class="py-5">
+        <div class="letter-card mx-auto p-4 p-md-5" style="max-width:850px;">
+          <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-4">
+            <div class="d-flex align-items-center gap-2">
+              <span class="material-symbols-outlined heart fs-2">mail</span>
+              <h3 class="serif fw-bold mb-0" style="color:var(--primary)">كلمتين من قلبي ليكي ❤️</h3>
+            </div>
+            <div class="rounded-circle d-flex align-items-center justify-content-center text-white"
+                 style="width:48px;height:48px;background:linear-gradient(135deg,var(--gold-soft),var(--gold));">
+              <span class="material-symbols-outlined">favorite</span>
+            </div>
+          </div>
+
+          <div class="fs-5 lh-lg">
+            <p class="serif fw-semibold" style="color:var(--primary)">❤️</p>
+            <p class="letter-box p-4 text-secondary">
+              [ من أول يوم شوفتك فيه وكل حاجة في حياتي بقت أجمل وأهدى.
+              وجودك جنبي هو أحسن نعمة ربنا رزقني بيها، وضحكتك بتنوّر كل يوم بيمر عليا.
+              بتمنى ليكي سنة جديدة كلها فرحة وراحة بال وتحققي فيها كل اللي بتحلمي بيه، ودايماً مع بعض إيد في إيد...]
+            </p>
+            <div class="pt-3">
+              <div class="script">دائماً ليكي ومعاكي،</div>
+              <div class="serif fw-bold" style="color:var(--primary)">خطيبك   ❤️</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Memories -->
+      <section id="memories" class="py-5">
+        <div class="text-center mx-auto mb-5" style="max-width:700px;">
+          <div class="fw-bold mb-2" style="color:var(--secondary)">
+            <span class="material-symbols-outlined me-1">photo_library</span>
+            ألبوم الذكريات
+          </div>
+          <h2 class="serif fw-bold mb-2">أحلى لحظاتنا ❤️</h2>
+          <p class="text-secondary mb-0">كل صورة من دول وراها حكاية وضحكة متتنسيش محفورة في قلبي...</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-12 col-sm-6 col-lg-4">
+            <div class="memory-card h-100" style="transform:rotate(-1deg)">
+              <div class="tape"></div>
+              <div class="position-relative">
+                <img src="imgs/WhatsApp Image 2026-09-23 at 10.51.45 PM.jpeg" alt="ذكرى">
+        
+              </div>
+              <p class="script text-center mt-3 mb-0">"اول خروجة لينا سوا برا البيت ✨"</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-12 col-sm-6 col-lg-4">
+            <div class="memory-card h-100" style="transform:rotate(1deg)">
+              <div class="tape" style="background:rgba(255,218,219,.85);transform:translateX(-50%) rotate(-1deg)"></div>
+              <div class="position-relative">
+                <img src="imgs/WhatsApp Image 2026-09-23 at 10.42.32 PM.jpeg" alt="ذكرى">
+           
+              </div>
+              <p class="script text-center mt-3 mb-0">"الضحكة اللي بتنسيني كل تعب الدنيا ❤️"</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-12 col-sm-6 col-lg-4">
+            <div class="memory-card h-100" style="transform:rotate(-2deg)">
+              <div class="tape" style="background:rgba(255,224,137,.85);transform:translateX(-50%) rotate(3deg)"></div>
+              <div class="position-relative">
+                <img src="imgs/WhatsApp Image 2026-09-23 at 10.40.43 PM.jpeg" alt="خطوبة">
+                
+              </div>
+              <p class="script text-center mt-3 mb-0">"أحلى وأهم خطوة في حياتنا سوا 💍"</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="col-12 col-sm-6 col-lg-4">
+            <div class="memory-card h-100" style="transform:rotate(2deg)">
+              <div class="tape"></div>
+              <div class="position-relative">
+                <img src="imgs/WhatsApp Image 2026-09-23 at 10.54.05 PM.jpeg" alt="مفاجأة">
+   
+              </div>
+              <p class="script text-center mt-3 mb-0">"أي وقت معاكي هو أحلى وقت في عمري 🌸"</p>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="col-12 col-sm-6 col-lg-4">
+            <div class="memory-card h-100" style="transform:rotate(-1deg)">
+              <div class="tape" style="background:rgba(255,218,219,.85);transform:translateX(-50%) rotate(1deg)"></div>
+              <div class="position-relative">
+                <img src="imgs/WhatsApp Image 2026-09-23 at 10.52.53 PM.jpeg" alt="مشوار">
+ 
+              </div>
+              <p class="script text-center mt-3 mb-0">"  احلي الايام في حياتي خطبت احلي بنت في الدنيا ❤️"</p>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="col-12 col-sm-6 col-lg-4">
+            <div class="memory-card h-100" style="transform:rotate(1deg)">
+              <div class="tape" style="background:rgba(255,224,137,.85);transform:translateX(-50%) rotate(-2deg)"></div>
+              <div class="position-relative">
+                <img src="imgs/WhatsApp Image 2026-09-23 at 10.55.38 PM.jpeg" alt="سيلفي">
+
+              </div>
+              <p class="script text-center mt-3 mb-0">"بحب الصورة دي اوي ❤️"</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+
+      <!-- Final -->
+      <section id="wishes" class="py-5">
+        <div class="final-card p-4 p-md-5 text-center">
+          <div class="position-absolute top-0 start-0 m-4 text-danger opacity-25">
+            <span class="material-symbols-outlined fs-1">favorite</span>
+          </div>
+          <div class="position-absolute bottom-0 end-0 m-4 text-purple opacity-25">
+            <span class="material-symbols-outlined fs-1">favorite</span>
+          </div>
+
+       <div class="mb-4">
+    <img class="final-photo1 w-100 shadow-lg"
+         src="imgs/WhatsApp Image 2026-09-23 at 10.40.43 PM.jpeg"
+         alt="صورتنا المفضلة">
+</div>
+
+          <div class="mx-auto" style="max-width:760px;">
+            <h2 class="serif fw-bold">كل سنة وإنتي معايا...</h2>
+            <p class="lead text-secondary lh-lg">
+              وإن شاء الله كل أعياد ميلادك الجاية تكون وأنا جنبك، محققين كل أحلامنا وراسمين الضحكة سوا على وشوشنا.
+            </p>
+            <div class="pt-2">
+              <span class="serif display-5 fw-bold heart">❤️</span>
+            </div>
+          </div>
+
+          <button id="confettiBtn" class="btn btn-love rounded-pill px-4 py-3 mt-4" type="button">
+            <span class="material-symbols-outlined me-1">celebration</span>
+            احتفلي معايا بأحلي يوم  ✨
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer py-5 text-center">
+    <div class="container">
+      <div class="serif fw-bold heart fs-4 mb-2">
+        <span class="material-symbols-outlined me-1">favorite</span>
+        كل عام وأنت لروحي حياة
+        <span class="material-symbols-outlined ms-1">favorite</span>
+      </div>
+      <p class="small text-secondary mb-0">صُنع بكل حُب وامتنان في هذا اليوم المميز ✨</p>
+    </div>
+  </footer>
+
+  <script>
+    // Music player visual interaction
+ const music = document.getElementById("backgroundMusic");
+    const musicBtn = document.getElementById("musicToggleBtn");
+    const musicIcon = document.getElementById("musicPlayIcon");
+
+    musicBtn.addEventListener("click", async () => {
+        if (music.paused) {
+            await music.play();
+
+            musicIcon.textContent = "pause";
+        } else {
+            music.pause();
+
+            musicIcon.textContent = "play_arrow";
+        }
+    });
+
+    // Confetti / hearts
+    const confettiBtn = document.getElementById('confettiBtn');
+    if (confettiBtn) {
+      confettiBtn.addEventListener('click', () => {
+        const hearts = ['❤️','✨','🌸','💍','🎉','💖'];
+
+        for (let i = 0; i < 20; i++) {
+          const el = document.createElement('div');
+          el.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+
+          Object.assign(el.style, {
+            position:'fixed',
+            left:(Math.random() * 80 + 10) + 'vw',
+            top:'90vh',
+            fontSize:(Math.random() * 20 + 20) + 'px',
+            zIndex:'9999',
+            pointerEvents:'none',
+            transition:'all 2s ease-out'
+          });
+
+          document.body.appendChild(el);
+
+          setTimeout(() => {
+            el.style.transform =
+              `translateY(-${Math.random() * 60 + 30}vh) rotate(${Math.random() * 360}deg)`;
+            el.style.opacity = '0';
+          }, 50);
+
+          setTimeout(() => el.remove(), 2100);
+        }
+      });
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
